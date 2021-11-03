@@ -16,7 +16,7 @@ type Netem struct {
 }
 
 type Option struct {
-	networkIface string
+	NetworkIface string
 }
 
 // New create netem configuration
@@ -36,25 +36,25 @@ func New(opt Option) (*Netem, error) {
 
 // AddDelay add delay for given duration to spesific interface
 func (netem *Netem) AddDelay(d time.Duration) error {
-	cmd := []string{"add", "dev", netem.networkIface, "root", "netem", "delay", getDuration(d) + "ms"}
+	cmd := []string{"add", "dev", netem.NetworkIface, "root", "netem", "delay", getDuration(d) + "ms"}
 	return netem.run(cmd...)
 }
 
 // DeleteDelay delete delay for given duration from spesific interface
 func (netem *Netem) DeleteDelay(d time.Duration) error {
-	cmd := []string{"delete", "dev", netem.networkIface, "root", "netem", "delay", getDuration(d) + "ms"}
+	cmd := []string{"delete", "dev", netem.NetworkIface, "root", "netem", "delay", getDuration(d) + "ms"}
 	return netem.run(cmd...)
 }
 
 // ChangeDelay modify current delay from spesific interface
 func (netem *Netem) ChangeDelay(d time.Duration) error {
-	cmd := []string{"change", "dev", netem.networkIface, "root", "netem", "delay", getDuration(d) + "ms"}
+	cmd := []string{"change", "dev", netem.NetworkIface, "root", "netem", "delay", getDuration(d) + "ms"}
 	return netem.run(cmd...)
 }
 
 // Show display all rules attached to spesific interface
 func (netem *Netem) Show() ([]string, error) {
-	cmd := []string{"show", "dev", netem.networkIface}
+	cmd := []string{"show", "dev", netem.NetworkIface}
 
 	var stdout bytes.Buffer
 

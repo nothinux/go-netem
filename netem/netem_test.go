@@ -10,7 +10,7 @@ var iface = "wlp5s0"
 
 func TestNetemDelay(t *testing.T) {
 	opt := Option{
-		networkIface: iface,
+		NetworkIface: iface,
 	}
 
 	netem, err := New(opt)
@@ -78,7 +78,7 @@ func TestNetemDelay(t *testing.T) {
 
 func TestNetemDuplicateAdd(t *testing.T) {
 	opt := Option{
-		networkIface: iface,
+		NetworkIface: iface,
 	}
 
 	netem, err := New(opt)
@@ -106,7 +106,7 @@ func TestNetemDuplicateAdd(t *testing.T) {
 
 func TestNetemChangeRules(t *testing.T) {
 	opt := Option{
-		networkIface: iface,
+		NetworkIface: iface,
 	}
 
 	netem, err := New(opt)
